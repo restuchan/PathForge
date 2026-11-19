@@ -26,7 +26,16 @@ int main() {
     std::cout << "Maze Visualization:\n\n";
 
     maze.display();
-
+    std::cout << "\n=== MAZE VALIDATION ===\n";
+    Position testPosition{0, 0};
+    std::cout << "Position (0,0): "
+          << maze.isInside(testPosition) << '\n';
+    std::cout << "Position (5,0): "
+          << maze.isInside({5, 0}) << '\n';
+    std::cout << "Position (1,0) walkable: "
+          << maze.isWalkable({1, 0}) << '\n';
+    std::cout << "Position (0,1) walkable: "
+          << maze.isWalkable({0, 1}) << '\n';
     std::cout << "\nMaze Dimensions: "
               << maze.getRows() << " x "
               << maze.getCols() << '\n';

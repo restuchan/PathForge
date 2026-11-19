@@ -68,3 +68,18 @@ void Maze::display() const {
         std::cout << '\n';
     }
 }
+
+// Check whether position is inside maze
+bool Maze::isInside(Position position) const {
+    return position.row < rows &&
+           position.col < cols;
+}
+
+// Check whether position can be traversed
+bool Maze::isWalkable(Position position) const {
+    if (!isInside(position)) {
+        return false;
+    }
+
+    return grid[position.row][position.col] != Cell::Wall;
+}
